@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi TSP24</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <script src="js/servizi.js"></script>
+
+</head>
+
+<script>
+
+</script>
+
+<body onload="init()">
+    <header>
+        <div class="wrap-header">
+            <div class="div-logo"><a href="/index.html"><img src="img/default-clients-5-macrohard.png"
+                        alt="logo tsp.24"></a></div>
+            <div>
+                <h3>TSP.24</h3>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="/index.html">home</a></li>
+                    <li><a href="/servizi.html">servizi</a></li>
+                    <li><a href="/team.html">team</a></li>
+                    <li><a href="/contatti.html">contatti</a></li>
+                    <li><input id="cerca" type="search" value="qweqwe"></li>
+                    <li id="orario"><a></a></li>
+
+                </ul>
+            </div>
+            <div class="menu-toggle">menu</div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <h1>Servizi</h1>
+            <p>Elenco dei servizi/prodotti forniti da tsp24</p>
+
+
+        <form id="fchoice">
+            <div class="divfiltra">Seleziona categoria:
+                <select name="selcategory" id="selcategory" size="1">
+                    <option value="categories"> category </option>
+                    <option value="perfumes"> profumi della terra </option>
+                    <option value="smartphones"> cellulari stratosferici </option>
+                    <option value="laptops"> laptops bestiali </option>
+                    <option value="skin-care"> skin-care super ammorbidenti </option>
+                </select>
+
+                <button id="btnselcategory" type="button">filtra</button>
+
+                <!-- Select = titolo, category, brand | order = asc-desc -->
+
+            </div>
+            <div class="divsort">Ordina per:
+                <select name="selsort" id="selsort" size="1">
+                    <option value="nothingsorted">...</option>
+                    <option value="title"> Titolo </option>
+                    <option value="category"> Categoria </option>
+                    <option value="brand"> Marca </option>
+                    <option value="price"> Prezzo </option>
+                </select>
+    
+                <input type="radio" id="asc" name="dir" value="asc" checked>
+                <label for="asc">A..Z</label>
+                <input type="radio" id="desc" name="dir" value="desc">
+                <label for="asc">Z..A</label>
+                
+                <button id="btnsort" type="button" >ordina</button>
+            </div>
+        </form>
+        <div id="divdettaglio">
+            <form id="fdettaglio">
+                <label for="title">title: </label><input type="text" name="title" id="title">
+                <label for="brand">brand: </label><input type="text" name="brand" id="brand">
+                <label for="category">category: </label><input type="text" name="category" id="category">
+                <label for="price">price: </label><input type="text" name="price" id="price"><br>
+                <label for="description">description:</label><textarea name="description" id="description"></textarea>
+
+            </form>
+        </div>
+            <table id="tservizi">
+                <thead>
+                    <tr>
+                        <td>title</td>
+                        <td>category</td>
+                        <td>description</td>
+                        <td>brand</td>
+                        <td>price</td>
+                        <td>image</td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap-footer">
+            <div class="div-logo"><img src="img/default-clients-5-macrohard.png" alt="logo tsp.24"></div>
+            <div>
+                <h3>TSP.24</h3>
+                <h6>dati aziendali</h6>
+                <h6>indirizzo</h6>
+                <h6></h6>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="/index.html">home</a></li><br>
+                    <li><a href="/servizi.html">servizi</a></li><br>
+                    <li><a href="/team.html">team</a></li><br>
+                    <li><a href="/contatti.html">contatti</a></li><br>
+                </ul>
+            </div>
+            <div class="menu-toggle">menu</div>
+        </div>
+
+    </footer>
+</body>
+
+</html>

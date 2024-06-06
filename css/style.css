@@ -1,0 +1,316 @@
+
+/* reset */
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+    border-collapse: collapse;
+  }
+  
+  body, div, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+/* header */
+
+@import url('https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Reddit Mono", serif;    
+    text-align: center;
+}
+
+body {
+    font-family: "Roboto Flex", sans-serif;
+}
+
+ol, ul {
+    list-style: none;
+    padding: 10px 20px;
+}
+
+:root{
+    --light1: #F5ECE6;
+    --light2: #E6DDD7;
+    --medium: #B2B0A1;
+    --dark1:  #A9A7A0;
+    --dark2:  #6E6658;
+}
+
+header {
+    background-color: var(--light1);
+}
+
+
+.wrap-header .menu-toggle{
+    display: none;
+}
+
+.wrap-footer .menu-toggle{
+    display: none;
+}
+
+.wrap-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrap-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.div-logo img {
+    height: 120px;
+}
+
+.wrap-header .navbar li {
+    display: inline;
+    
+}
+
+.navbar li:hover, .navbar li:active {
+    background-color: var(--dark2);
+}
+
+.navbar li {
+    background-color: var(--dark1);
+}
+
+.navbar li a {
+    color: var(--light1);
+}
+
+ul {
+    background-color: var(--dark1);
+}
+
+/* main */
+
+main div {
+    padding: 10px;
+}
+
+.fullwidth {
+    width: 100%;
+    background-color: var(--dark1);
+}
+
+.boxed {
+    max-width: 1100px;
+    margin: 15px auto;
+    
+}
+
+.banner {
+    width: 100%;
+    background-color: var(--dark2);
+    color: var(--light1);
+    padding: 40px;
+}
+
+.divfiltra .divsort {
+    display: flex;
+}
+
+.thumb{
+    max-width:200px;
+}
+
+.desc {
+    min-width: 200px;
+}
+
+.rigapr td {
+    padding: 20px;
+}
+
+.thumb:hover{
+    background-color: rgb(255, 123, 0);
+    max-width:300px;
+}
+
+
+.rigapr:nth-child(2n) {
+    background-color: lightgray;
+}
+
+.rigapr td{
+    border: 1px solid darkgray;
+}
+
+.rigapr:last-child(0){
+    text-align: center;
+}
+
+#fdettaglio label {
+    min-width: 100px !important;
+}
+
+/* footer */
+
+footer {
+    background-color: var(--light2) ;
+}
+
+.wrap-footer .navbar li {
+    display: block;
+}
+
+.menu-toggle {
+    padding: 10px;
+    margin: 10px;
+    color: var(--light1);
+}
+
+.menu-x {
+    display: none;
+}
+/*     card     */
+
+.containercard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: stretch;
+
+}
+
+.teamcard {
+    position: relative; 
+    border: 1px solid grey;
+    width: 31%;
+    padding: 0px;
+    padding-bottom: 20px;
+    margin: 5px;
+}
+
+.teamcard td {  
+    font: italic;
+    border: 1px;
+    text-align: center;
+    width: 50%;
+    color: var(--light1);
+    font-size: 0.8em;
+    background-color: var(--medium);
+    border: 1px solid grey;
+}
+
+.teamcard table {
+    position: absolute;
+    width: 100px;
+    bottom: 0px;
+}
+
+.cardimage {
+    width: 100%;
+}
+
+.cardname {
+    background-color: var(--dark2);
+    color: white;
+    margin: 0px;
+    padding: 3px;
+}
+
+.cardrole {
+    background-color: var(--dark1);
+    color: white;
+    margin: 0px;
+    padding: 3px;
+}
+
+.cardbio {
+    margin-bottom: 20px;
+}
+
+/*     contatti     */
+
+.containercontatti {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contatti ul {padding: 0px;}
+.formcontatti .row {
+    width: 100%;
+    display: flex;
+}
+.formcontatti .lbl {width: 24%;}
+.formcontatti .tx {width: 74%;}
+
+.contatti {
+    width: 33%;
+    padding: 30px;
+    background-color: rgb(175, 173, 173);
+}
+
+.formcontatti {
+    width: 66%;
+}
+
+
+
+/* responsive */
+
+/* mobile screen under 767px of width*/
+
+@media only screen and (max-width: 767px) {
+
+    .teamcard {
+        width: 48%;
+    }
+
+    .wrap-header .navbar li {
+        display: block;
+    }
+}
+@media only screen and (max-width: 460px) {
+    
+    .teamcard{
+        width: 98%;
+    }
+
+    .wrap-header .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .div-logo {
+        align-content: center;
+    }
+
+    .wrap-header {
+        flex-direction: column;
+    }
+
+    .wrap-footer .infoMenu {
+        display: block!important;
+    }
+
+    
+}
+@media only screen and (max-width: 230px) {
+
+    .teamcard td {
+        display: block;
+    }
+}
