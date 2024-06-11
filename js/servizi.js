@@ -6,19 +6,13 @@ function init() {
     let aorario = document.querySelector("#orario a");
     aorario.innerHTML = time;
     let btndata = document.querySelector("#btnData");
-
-    /*btndata.addEventListener("click",  ()=>   {
-        let data= new Date();
-        let txdata=data.getUTCDate();
-        alert(txdata);
-     });
-     */
     loadSelCategory();
-
     btnselcategory.addEventListener("click", showSelCategory);
     btnsort.addEventListener("click", showSelCategory);
-
+    btnaddservizi.addEventListener("click", addProduct);
     showSelCategory();
+    setLoginForm();
+
 
 }
 
@@ -99,7 +93,74 @@ function fetchProducts(url) {
         });
 }
 
-function visDetails(id){
+function logout() {
+    sessionStorage.clear();
+    window.location.href="index.html";
+    //window.history.back(); simula il pulsante indietro 
+}
+
+function login() {
+    const datijson = creaDatiJsonByForm("flogin");
+
+    fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: datijson
+    })
+        .then(res => res.json())
+        .then(obj => {
+            console.log(obj)
+            sessionStorage.setItem("nome", obj.firstName);
+            sessionStorage.setItem("cognome", obj.lastName);
+            sessionStorage.setItem("token", obj.token);
+            window.location.href="gestioneprodotti.html";
+            
+        });
+
+}
+
+function setLoginForm() {
+    if (sessionStorage.getItem("token")){
+        document.getElementById("lblmsglogin").innerHTML = "Benvenuto "
+                + sessionStorage.getItem("nome") 
+                + " " 
+                + sessionStorage.getItem("cognome");
+            document.getElementById("btnlogin").style.display="none";
+            document.getElementById("btnlogout").style.display="block";
+        } else {
+            document.getElementById("lblmsglogin").innerHTML = "Effettua login"
+            document.getElementById("btnlogin").style.display="block";
+            document.getElementById("btnlogout").style.display="none";
+        
+        }
+}
+
+function creaDatiJsonByForm(mioform) {                  // passo il nome di un form id come testo "fdettagliato"
+    const myform = document.getElementById(mioform);    // mioform è "fdettagliato testo"
+    const fdata = new FormData(myform);                 // array entries di coppie key value
+    const dati = Object.fromEntries(fdata.entries());   // creo oggetto json javascript con input name del forum
+    const datijson = JSON.stringify(dati);              // creo testo string con oggetto json '{"title":"nuovo libro","price":"123","brand":"apple"}'
+    return datijson
+}
+
+function addProduct() {
+    //recupero i dati da front
+
+    const datijson = creaDatiJsonByForm("fdettaglio");
+    fetch('https://dummyjson.com/products/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: datijson
+    })
+        .then(res => res.json())
+        .then(ris => {
+            lblmsg.innerHTML = JSON.stringify(ris);
+            console.log(ris);
+        });
+
+}
+
+function visDetails(id) {
     let url = `https://dummyjson.com/products/${id}`;
     fetch(url, {})
         .then((resp) => {
@@ -114,12 +175,12 @@ function visDetails(id){
                 ris += riga + "<br>";
             }
 
-            document.getElementById("title").value=objJson.title;
-            document.getElementById("category").value=objJson.category;
-            document.getElementById("description").innerHTML=objJson.description;
-            document.getElementById("brand").value=objJson.brand;
-            document.getElementById("price").value=objJson.price;
-            
+            document.getElementById("title").value = objJson.title;
+            document.getElementById("category").value = objJson.category;
+            document.getElementById("description").innerHTML = objJson.description;
+            document.getElementById("brand").value = objJson.brand;
+            document.getElementById("price").value = objJson.price;
+
 
         });
 }
@@ -140,7 +201,7 @@ function creaTRSerivio(prodotto) {
     //htmltr += `<a href="javascript:visDetails(${prodotto.id})"><td><img class="thumb"S src="${prodotto.images}"></td></a>`
     htmltr += "<td><img class='thumb' src='" + prodotto["images"][0] + "'></td>";
 
-    
+
     htmltr += "</tr>"
     return htmltr;
 
