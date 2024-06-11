@@ -1,19 +1,24 @@
+document.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM fully loaded and parsed");
+    init();
+});
 
 function init() {
-    let liorario = document.getElementById("orario");
-    let time = getCurrentTime();
-    liorario.innerHTML = "<a>" + time + "</a>";
-    let aorario = document.querySelector("#orario a");
-    aorario.innerHTML = time;
-    let btndata = document.querySelector("#btnData");
+    
     loadSelCategory();
     btnselcategory.addEventListener("click", showSelCategory);
     btnsort.addEventListener("click", showSelCategory);
-    btnaddservizi.addEventListener("click", addProduct);
+    //btnaddservizi.addEventListener("click", addProduct);
     showSelCategory();
     setLoginForm();
+    var timer = setInterval(refreshClock, 1000);
 
+}
 
+function refreshClock() {
+    const liorario = document.getElementById("orario");
+    const time = getCurrentTime();
+    liorario.innerHTML = "<a>" + time + "</a>";
 }
 
 function showOra() {
@@ -59,11 +64,6 @@ function loadSelCategory() {
 
         });
 }
-
-document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM fully loaded and parsed");
-    init();
-});
 
 
 function fetchProducts(url) {
@@ -143,7 +143,7 @@ function creaDatiJsonByForm(mioform) {                  // passo il nome di un f
     return datijson
 }
 
-function addProduct() {
+/*function addProduct() {
     //recupero i dati da front
 
     const datijson = creaDatiJsonByForm("fdettaglio");
@@ -158,7 +158,7 @@ function addProduct() {
             console.log(ris);
         });
 
-}
+}*/
 
 function visDetails(id) {
     let url = `https://dummyjson.com/products/${id}`;

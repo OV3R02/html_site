@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
     <script src="js/servizi.js"></script>
+    <script src="js/gestioneprodotti.js"></script>
     <script src="js/auth.js"></script>
     
 
@@ -17,7 +18,7 @@
 
 </script>
 
-<body onload="init()">
+<body onload="initgest()">
     <header>
         <div class="wrap-header">
             <div class="div-logo"><a href="/index.html"><img src="img/default-clients-5-macrohard.png"
@@ -90,13 +91,11 @@
         </form>
         <div id="divdettaglio">
             <form id="fdettaglio">
-                <label for="title">title: </label><input type="text" name="title" id="title">
-                <label for="brand">brand: </label><input type="text" name="brand" id="brand">
-                <label for="category">category: </label><input type="text" name="category" id="category">
+                <label for="title">title: </label><input type="text" name="title" id="title"><br>
+                <label for="brand">brand: </label><input type="text" name="brand" id="brand"><br>
+                <label for="category">category: </label><input type="text" name="category" id="category"><br>
                 <label for="price">price: </label><input type="text" name="price" id="price"><br>
-                <label for="description">description:</label><textarea name="description" id="description">
-                    asdadasd
-                </textarea>
+                <label for="description">description:</label><textarea name="description" id="description"></textarea>
                 <br><button id="btnaddservizi" type="button">Aggiungi servizio</button><label id="lblmsg">-</label>
             </form>
         </div>

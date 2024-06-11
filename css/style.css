@@ -159,11 +159,22 @@ main div {
 }
 
 #fdettaglio label {
-    width: 150px;
-    display: block;
+    width: 100px;
+    display: inline-block;
 }
 
+#fdettaglio input, #fdettaglio textarea {
+    max-width: 450px;
+    width: 100px;
+}
+
+
+
 /* footer */
+
+.logoimagefooter {
+    height: 120px;
+}
 
 footer {
     background-color: var(--light2) ;
@@ -182,6 +193,11 @@ footer {
 .menu-x {
     display: none;
 }
+
+.infoMenu {
+    margin: 0 auto;
+}
+
 /*     card     */
 
 .containercard {
@@ -283,7 +299,12 @@ footer {
     }
 }
 @media only screen and (max-width: 660px) {
-    
+
+    .containercontatti {
+        display: block;
+    }
+
+
     .teamcard{
         width: 98%;
     }
