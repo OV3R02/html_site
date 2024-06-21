@@ -8,7 +8,6 @@ function init() {
     loadSelCategory();
     btnselcategory.addEventListener("click", showSelCategory);
     btnsort.addEventListener("click", showSelCategory);
-    //btnaddservizi.addEventListener("click", addProduct);
     showSelCategory();
     setLoginForm();
     var timer = setInterval(refreshClock, 1000);
@@ -18,7 +17,7 @@ function init() {
 function refreshClock() {
     const liorario = document.getElementById("orario");
     const time = getCurrentTime();
-    liorario.innerHTML = "<a>" + time + "</a>";
+    liorario.innerHTML = `<span class='badge bg-secondary'>${time}</span>`;
 }
 
 function showOra() {
@@ -125,12 +124,17 @@ function setLoginForm() {
                 + sessionStorage.getItem("nome") 
                 + " " 
                 + sessionStorage.getItem("cognome");
-            document.getElementById("btnlogin").style.display="none";
-            document.getElementById("btnlogout").style.display="block";
+                document.getElementById("btnlogin").style.display="none";
+                document.getElementById("lblmsglogin").style.display="none";
+            
+                document.getElementById("btnlogout").style.display="block";
+                document.getElementById("lblmsglogin").style.display="block";
+            
         } else {
             document.getElementById("lblmsglogin").innerHTML = "Effettua login"
             document.getElementById("btnlogin").style.display="block";
             document.getElementById("btnlogout").style.display="none";
+            
         
         }
 }
@@ -190,9 +194,11 @@ function creaTRSerivio(prodotto) {
     let htmltr = "<tr class='rigapr'>";
     //let anchor = `<a href="https://dummyjson.com/products/${prodotto.id}">${prodotto.title}</a>`;
 
-    let anchor = `<a href="javascript:visDetails(${prodotto.id})">${prodotto.title}</a>`;
+    let anchor = `<i class="bi bi-search" data-bs-toggle="modal" data-bs-target="#myModal" 
+                onclick="visDetails(${prodotto.id})"></i>`;
 
     htmltr += "<td>" + anchor + "</td>";
+    htmltr += "<td>" + prodotto["title"] + "</td>";
     htmltr += "<td>" + prodotto["category"] + "</td>";
     htmltr += "<td class='desc' width='50%'>" + prodotto["description"] + "</td>";
     htmltr += "<td>" + prodotto["brand"] + "</td>";

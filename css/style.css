@@ -50,9 +50,9 @@ ol, ul {
     --dark2:  #6E6658;
 }
 
-header {
+/*header {
     background-color: var(--light1);
-}
+}*/
 
 
 .wrap-header .menu-toggle{
@@ -81,9 +81,13 @@ header {
 .wrap-header .navbar li {
     display: inline;
     padding: 5px;
-    
 }
 
+.navbar img {
+    max-width: 200px;
+}
+
+/*
 .navbar li:hover, .navbar li:active {
     background-color: var(--dark2);
 }
@@ -146,7 +150,7 @@ main div {
 }
 
 
-.rigapr:nth-child(2n) {
+/*.rigapr:nth-child(2n) {
     background-color: lightgray;
 }
 
@@ -156,7 +160,7 @@ main div {
 
 .rigapr:last-child(0){
     text-align: center;
-}
+}*/
 
 #fdettaglio label {
     width: 100px;
@@ -165,9 +169,8 @@ main div {
 
 #fdettaglio input, #fdettaglio textarea {
     max-width: 450px;
-    width: 100px;
+    width: 450px;
 }
-
 
 
 /* footer */
@@ -312,10 +315,6 @@ footer {
     .wrap-header .menu-toggle {
         display: block;
         
-    }
-
-    .navbar {
-        display: none;
     }
 
     .div-logo {
